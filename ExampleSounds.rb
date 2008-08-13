@@ -48,6 +48,35 @@ def minorScale
   return t.nextSamples(t.sampleLength)
 end
 
+def triads
+  bottom = Instrument.new(120, SineOscillator.new(44100, 220.0, 0.5), [], nil, nil)
+  middle = Instrument.new(120, SineOscillator.new(44100, 220.0, 0.5), [], nil, nil)
+  top = Instrument.new(120, SineOscillator.new(44100, 220.0, 0.5), [], nil, nil)
+
+  bottomTrack = Track.new(bottom)
+  bottomTrack.notes << Note.new("C", 3, 2)
+  bottomTrack.notes << Note.new("C", 3, 2)
+  bottomTrack.notes << Note.new("D", 3, 2)
+  bottomTrack.notes << Note.new("C", 3, 2)
+  
+  middleTrack = Track.new(middle)
+  middleTrack.notes << Note.new("E", 3, 2)
+  middleTrack.notes << Note.new("F", 3, 2)
+  middleTrack.notes << Note.new("G", 3, 2)
+  middleTrack.notes << Note.new("E", 3, 2)
+  
+  topTrack = Track.new(top)
+  topTrack.notes << Note.new("G", 3, 2)
+  topTrack.notes << Note.new("A", 4, 2)
+  topTrack.notes << Note.new("B", 4, 2)
+  topTrack.notes << Note.new("G", 3, 2)
+  
+  s = Song.new()
+  s.tracks = [bottomTrack, middleTrack, topTrack]
+  
+  return s.nextSamples(s.sampleLength)  
+end
+
 def vibratoExample
   normal = Instrument.new(120, SawtoothOscillator.new(44100, 220.0, 0.3), [], nil, nil)
   vibrato = Instrument.new(120, SawtoothOscillator.new(44100, 220.0, 0.3), [], SineOscillator.new(44100, 9.0, 15.0), nil)

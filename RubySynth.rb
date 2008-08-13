@@ -2,6 +2,7 @@ require 'Includes'
 
 startTime = Time.now
 data = sineBeep()
+data = triads()
 #data = DemoSong()
 #data = SweetChildOMine()
 #data = SweetDreams()

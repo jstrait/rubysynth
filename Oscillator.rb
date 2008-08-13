@@ -7,11 +7,6 @@ class Oscillator
     @periodOffset = 0.0
   end
 
-  # Placeholder that is overridden by actual non-abstract class
-  def waveFunction
-    return 0.0
-  end
-
   def nextSample
     sample = waveFunction
     
